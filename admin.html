@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Owner dashboard</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="container wide">
+  <h1>Owner dashboard</h1>
+
+  <!-- Login -->
+  <section id="loginBox" class="card">
+    <h2>Log in</h2>
+    <label>Email</label><input id="loginEmail" type="email" value="demo@glowstudio.in" autocomplete="email">
+    <label>Password</label><input id="loginPassword" type="password" value="demo1234" autocomplete="current-password">
+    <p><button id="loginBtn">Log in</button></p>
+    <p class="muted">Demo: demo@glowstudio.in / demo1234</p>
+  </section>
+
+  <!-- Dashboard -->
+  <section id="dash" class="hidden">
+    <p><span id="salonTitle"></span> · <button class="secondary small" id="logoutBtn">Log out</button></p>
+    <nav class="tabs">
+      <button data-tab="today" class="active">Today</button>
+      <button data-tab="calendar">Calendar</button>
+      <button data-tab="services">Services</button>
+      <button data-tab="staff">Staff</button>
+      <button data-tab="hours">Hours &amp; Blocks</button>
+      <button data-tab="customers">Customers</button>
+      <button data-tab="stats">Stats</button>
+      <button data-tab="walkin">Walk-in booking</button>
+    </nav>
+    <div id="error" class="error hidden"></div>
+    <div id="notice" class="success hidden"></div>
+
+    <div id="tab-today" class="tab-pane">
+      <h2>Today's appointments</h2>
+      <input type="date" id="todayDate">
+      <div id="todayList"></div>
+    </div>
+
+    <div id="tab-calendar" class="tab-pane hidden">
+      <h2>Calendar</h2>
+      <label>Week starting (Monday)</label><input type="date" id="weekStart">
+      <div id="weekList"></div>
+    </div>
+
+    <div id="tab-services" class="tab-pane hidden">
+      <h2>Services</h2>
+      <form id="serviceForm" class="card">
+        <label>Name</label><input name="name" required maxlength="100">
+        <label>Duration (minutes)</label><input name="duration_minutes" type="number" min="5" step="5" required>
+        <label>Price (₹)</label><input name="price" type="number" min="0" required>
+        <p><button>Add service</button></p>
+      </form>
+      <div id="servicesList"></div>
+    </div>
+
+    <div id="tab-staff" class="tab-pane hidden">
+      <h2>Staff</h2>
+      <form id="staffForm" class="card">
+        <label>Name</label><input name="name" required maxlength="100">
+        <label>Phone (10 digits, optional)</label><input name="phone" maxlength="10">
+        <label>Working days</label>
+        <div id="staffDays"></div>
+        <p><button>Add staff member</button></p>
+      </form>
+      <div id="staffList"></div>
+    </div>
+
+    <div id="tab-hours" class="tab-pane hidden">
+      <h2>Weekly working hours</h2>
+      <div id="hoursForm"></div>
+      <p><button id="saveHoursBtn">Save working hours</button></p>
+      <label>Buffer between appointments (minutes)</label>
+      <input type="number" id="bufferInput" min="0" max="120">
+      <p><button id="saveBufferBtn" class="secondary">Save buffer</button></p>
+      <h2>Blocked dates / times</h2>
+      <form id="blockForm" class="card">
+        <label>Date</label><input name="date" type="date" required>
+        <label>Start time (empty = full day)</label><input name="start_time" type="time">
+        <label>End time</label><input name="end_time" type="time">
+        <label>Reason</label><input name="reason" maxlength="100">
+        <p><button>Block</button></p>
+      </form>
+      <div id="blocksList"></div>
+    </div>
+
+    <div id="tab-customers" class="tab-pane hidden">
+      <h2>Customers</h2>
+      <div id="customersList"></div>
+    </div>
+
+    <div id="tab-stats" class="tab-pane hidden">
+      <h2>Stats</h2>
+      <div id="statsBox" class="stat-grid"></div>
+    </div>
+
+    <div id="tab-walkin" class="tab-pane hidden">
+      <h2>Add a walk-in / phone booking</h2>
+      <div id="walkinForm" class="card">
+        <label>Customer name</label><input id="wName">
+        <label>Phone (10 digits)</label><input id="wPhone" maxlength="10">
+        <label>Services</label><div id="wServices"></div>
+        <label>Staff</label><select id="wStaff"><option value="any">Any available</option></select>
+        <label>Date</label><input type="date" id="wDate">
+        <label>Time slot</label><div id="wSlots" class="slots"></div>
+        <label>Notes (optional)</label><textarea id="wNotes" rows="2"></textarea>
+        <p><button id="wConfirmBtn">Create booking</button></p>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/js/admin.js"></script>
+</body>
+</html>

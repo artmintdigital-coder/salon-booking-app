@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salon Booking</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="container">
+  <h1>💇 Salon Appointment Booking</h1>
+  <p class="muted">Book online in under a minute — no account needed. Owners manage everything from the dashboard.</p>
+
+  <section class="card">
+    <h2>Demo salon</h2>
+    <p><b>Glow &amp; Grace Salon</b><br>Shop 12, MG Road, Camp, Pune, Maharashtra 411001<br>📞 9876543210</p>
+    <p><a class="btn" href="/book/glow-studio">Book an appointment →</a></p>
+    <p class="muted">Run <code>npm run seed</code> first if the demo salon does not load.</p>
+  </section>
+
+  <section class="card">
+    <h2>Owner dashboard</h2>
+    <p>Today's appointments, calendar, services, staff, working hours, blocks, customers and stats.</p>
+    <p><a class="btn secondary" href="/admin">Open /admin →</a></p>
+    <p class="muted">Demo login: <b>demo@glowstudio.in</b> / <b>demo1234</b><br>Change the password and JWT_SECRET before any real use.</p>
+  </section>
+
+  <section class="card">
+    <h2>How a customer books</h2>
+    <ol>
+      <li>Open the salon's public link, e.g. <code>/book/glow-studio</code></li>
+      <li>Pick services, staff (or "Any available") and a date</li>
+      <li>Choose a free slot, enter name + 10-digit phone, confirm</li>
+      <li>Keep the booking ID — it works with the phone number to cancel or reschedule (not within 2 hours of start)</li>
+    </ol>
+  </section>
+</main>
+</body>
+</html>
